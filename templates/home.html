@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <form action="/products/" method="GET">
+            <input type="submit" value="View Products"/>
+            {% if products is defined %}
+                {% for product in products: %}
+                <li>Name: {{ product.name }} Price: {{ product.price }} Quantity: {{ product.quantity }}</li>
+                {% endfor %}
+            {% endif %}
+        </form>
+        <br>
+        <form action="/products/" method="POST">
+            <label style="display: block;">Name<input type="text" name="name"/></label>
+            <label style="display: block;">Price<input type="text" name="price"/></label>
+            <label style="display: block;">Quantity<input type="text" name="quantity"/></label>
+            <input type="submit" value="Add Product"/>
+        </form>
+        <br>
+        <form action="/products/" method="GET">
+            <label style="display: block;">Product Name<input type="text" name="name"/></label>
+            <input type="submit" value="View Product by ID"/>
+            {% if product is defined %}
+                <li>Name: {{ product.name }} Price: {{ product.price }} Quantity: {{ product.quantity }}</li>
+            {% endif %}
+        </form>
+        <br>
+    </body>
+</html>
